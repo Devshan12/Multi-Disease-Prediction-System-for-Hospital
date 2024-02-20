@@ -1,0 +1,188 @@
+body {
+    overflow-x: hidden; /* Lock vertical scrollbar */
+  }
+
+.section-title {
+    text-align: center;
+    /* padding-bottom: 30px; */
+}
+
+.pricing .row {
+    padding-top: 0px;
+}
+
+.card {
+    margin-top: 57px;
+    border-radius: 8px 40px 40px 8px;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 1px 0px 8px 2px greenyellow;
+}
+
+.bg-dark {
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #40365e 74%);
+}
+
+label {
+    color: white;
+    margin-top: 15px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+}
+
+.jumbotron {
+    
+    width: auto; /* Set the desired width for the jumbotron */
+    margin: auto; /* Center the jumbotron on the page */
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #40365e 74%);
+    color: #fff;
+}
+
+#gender {
+    width: 300px;
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+
+
+
+#slot {
+    width: 300px;
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+#dept {
+    width: 300px;
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+#usertype{
+    width: 300px;
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+}
+
+#date{
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+#time{
+    font-size: 22px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+
+.form-group input {
+    width: 300px;
+    border: none;
+    /* border-bottom: 1px solid purple; */
+    border-bottom: 2px solid green;
+    outline: none;
+    font-size: 22px;
+    margin-bottom: 5px;
+    font-family: 'Itim', 'Times New Roman', Times, serif;
+    
+}
+
+option {
+    width: 400px;
+    border: none;
+    border-bottom: 2px solid green;
+    outline: none;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.form-group input:hover {
+    background-color: ghostwhite;
+}
+
+#btn {
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+    border-radius: 15px;
+    border: none;
+    position: relative;
+    width: 300px;
+}
+
+
+
+
+#btn:hover {
+    background-color: white;
+    color: white;
+}
+
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .blink-text {
+    animation: blink 1.5s infinite;
+  }
+
+
+
+  
+  .text-custom-muted {
+    color: #888; /* Replace with your desired color */
+  }
+
+  .department-labels {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .department-label {
+    margin: 5px;
+    padding: 8px;
+    background-color: #63d471;
+    background-image: linear-gradient(315deg, #63d471 0%, #233329 74%);
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .department-label:hover {
+    background-color: #dcdcdc;
+  }
+  
+
+  .imgabout:hover {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
