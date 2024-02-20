@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patients Booking
+{% endblock title %}
+
+{% block body %}
+<br><br>
+<div class="container mt-3">
+<div class="row">
+
+<div class="col-md-5">
+<div class="card" style="width: 20rem;">
+  <img src="../static/bg1.jpg" class="card-img-top" alt="..." style="height: 19rem;">
+  <div class="card-body">
+    <h5 class="card-title">HOSPITAL</h6>
+    <p class="card-text">DEPARTMENTS</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <div class="department-labels">
+      {% for d in doct %}
+        <label class="department-label">{{ d.dept }}</label>
+      {% endfor %}
+    </div>
+    
+  </ul>
+  <div class="card-body">
+   
+    <a href="/about" class="card-link" style="color: #63d471;
+    "><strong>About Us</strong></a>
+  </div>
+</div>
+
+</div>
+
+<div class="col-md-3.5 jumbotron mx-auto">
+
+<h4 class="text-center text-light blink-text">Book Your Slot</h4>
+<br>
+
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+
+
+<form action="/patients" method="post">
+
+ 
+
+  <div class="form-group">
+
+    <input type="email" class="form-control" id="email" value={{current_user.email}} name="email" required>
+  
+  </div>
+
+  <div class="form-group">
+  
+    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+  
+  </div>
+
+ <div class="form-group">
+
+            
+                                      
+<select class="form-control" id="gender" name="gender"  required>
+        <option selected>Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+ 
+      </select>
+ </div>
+
+ <div class="form-group">
+
+            
+                                      
+<select class="form-control" id="slot" name="slot"  required>
+        <option selected>Slot</option>
+        <option value="morning">Morning</option>
+        <option value="evening">Evening</option>
+        <option value="night">Night</option>
+ 
+      </select>
+ </div>
+
+  <div class="form-group">
+    
+    <input type="time" class="form-control" id="time" name="time" placeholder="Time" required>
+  
+  </div>
+  <div class="form-group">
+    
+    <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
+  
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="disease" name="disease" placeholder="Disease" required>
+  
+  </div>
+
+<div class="form-group">
+
+            
+                                      
+<select class="form-control" id="dept" name="dept"  required>
+        <option selected>Select Doctor Department</option>
+        {% for d in doct  %}
+        <option value="{{d.dept}}">{{d.dept}}</option>
+        {% endfor %}
+      </select>
+ </div>
+
+  <div class="form-group">
+
+    <input type="number" class="form-control" id="number" name="number" placeholder="Phone Number" required>
+  
+  </div>
+
+  
+  <br>
+  <table style="width: 100%; ">
+    <tr>
+      <td style="text-align: center; vertical-align: middle;">
+        <div style="display: flex; align-items: center; justify-content: center;">
+          
+          <button type="submit"class="btn btn-dark btn-sm btn-block" style="width: 50%; background-color: #61528F; border: 1px solid #61528F; color: #fff;">Book</button>      
+
+
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+
+</div>
+
+<div class="col-md-4">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block title %} Malaria Predictor {% endblock title
+%} {% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <br /><br />
+      {% if pred == 0 %}
+      <div class="card card-body alert alert-danger">
+        <center>This cell is an Infected Malerial Cell.</center>
+      </div>
+      {% else %}
+      <div class="card card-body alert alert-success">
+        <center>This cell is not Infected.</center>
+      </div>
+      {% endif %}
+      <br />
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <a
+            href="{{ url_for('malaria') }}"
+            class="btn btn-block btn-primary"
+            style="
+              width: 50%;
+              background-color: #61528f;
+              border: 1px solid #61528f;
+              color: #fff;
+            "
+            >Back</a
+          >
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock %}

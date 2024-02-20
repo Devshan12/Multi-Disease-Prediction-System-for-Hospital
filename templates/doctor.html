@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block title %} Doctors {% endblock title %} {%
+block body %}
+
+<br /><br />
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4 jumbotron">
+      {% with messages=get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+
+      <div
+        class="alert alert-{{category}} alert-dismissible fade show"
+        role="alert"
+      >
+        {{message}}
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      {% endfor %} {% endif %} {% endwith %}
+
+      <h4 class="text-center text-light blink-text">Doctors Booking</h4>
+      <br />
+      <form action="/doctors" method="post">
+        <div class="form-group">
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            value="{{current_user.email}}"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="doctorname"
+            placeholder="Doctor Name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            name="dept"
+            placeholder="Doctor Department"
+            required
+          />
+        </div>
+
+        <table style="width: 100%">
+          <tr>
+            <td style="text-align: center; vertical-align: middle">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <button
+                  type="submit"
+                  class="btn btn-dark btn-sm btn-block"
+                  style="
+                    width: 50%;
+                    background-color: #61528f;
+                    border: 1px solid #61528f;
+                    color: #fff;
+                  "
+                >
+                  Book
+                </button>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+{% endblock body %}

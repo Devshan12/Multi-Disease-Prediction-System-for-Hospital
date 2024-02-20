@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Signup
+{% endblock title %}
+
+{% block body %}
+<br /><br />
+<div class="container mt-3">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+        </div>
+
+        <div class="col-md-4 jumbotron">
+            <h4 class="text-center text-light">Sign Up Here</h4>
+            <br>
+
+            {% with messages=get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            {% for category, message in messages %}
+
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                {{message}}
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <form id="signupForm" action="/signup" method="POST">
+
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="usertype">Select UserType</label>
+                    <select class="form-control" id="usertype" name="usertype" style="width: 95%; height: 45px;" required>
+                        <option selected>Select</option>
+                        <option value="Patient">Patient</option>
+                        <option value="Doctor">Doctor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <small id="emailHelp" class="form-text" style="color: yellow;">We'll never share your email with anyone else.</small>
+                    <span id="emailError" style="color: red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div><br>
+
+                <table style="width: 100%; ">
+                    <tr>
+                        <td style="text-align: center; vertical-align: middle;">
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <input type="submit" class="btn btn-dark btn-sm btn-block" value="Signup" style="width: 50%; background-color: #61528F; border: 1px solid #61528F; color: #fff;" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <br>
+
+            <p class="text-center text-light">Already a User
+                <a href="/login" style="color: yellow;"><strong><u>Login</u></strong></a></p>
+
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+        // Check for unique email before submitting the form
+        var emailInput = document.getElementById("email");
+        var emailError = document.getElementById("emailError");
+        var email = emailInput.value;
+
+        // You can implement your logic to check if the email is unique
+        // For example, you can make an AJAX request to the server to check uniqueness
+        // This is a simplified example assuming you have a global array 'uniqueEmails'
+        if (uniqueEmails.includes(email)) {
+            emailError.innerHTML = "Email is already taken";
+            event.preventDefault(); // Prevent the form submission
+        } else {
+            emailError.innerHTML = ""; // Clear any previous error message
+        }
+    });
+</script>
+
+{% endblock body %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block title %} Malaria Predictor {% endblock title
+%} {% block body %} <br /><br />
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $("#blah").attr("src", e.target.result).width(500).height(500);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+{% if message %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+<div class="row mb-3">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <center><h4 class="text-center blink-text">Malaria Predictor</h4></center>
+    <div class="card card-body">
+      <center><h3>Please upload the image of the cell</h3></center>
+      <br />
+      <form
+        class="form-horizontal"
+        action="{{ url_for('malariapredict') }}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <center>
+          <input
+            onchange="readURL(this);"
+            type="file"
+            name="image"
+            placeholder="Upload Image"
+          />
+          <br />
+
+          <br /><br />
+          <input
+            type="submit"
+            class="btn-primary btn"
+            style="
+              width: 50%;
+              background-color: #61528f;
+              border: 1px solid #61528f;
+              color: #fff;
+            "
+          />
+        </center>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block body %}
+<br /><br />
+<div class="container mt-3">
+
+<div class="row">
+
+
+<div class="col-md-4">
+
+</div>
+
+<div class="col-md-4 jumbotron">
+
+<h4 class="text-center text-light blink-text">Login</h4>
+<br>
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+
+<form action="/login" method="post">
+
+ 
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  
+  </div>
+
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" required>
+  </div>
+  <br>
+ 
+  <table style="width: 100%; ">
+    <tr>
+      <td style="text-align: center; vertical-align: middle;">
+        <div style="display: flex; align-items: center; justify-content: center;">
+          <input type="submit" class="btn btn-dark btn-sm btn-block" value="Login" style="width: 50%; background-color: #61528F; border: 1px solid #61528F; color: #fff;" />
+
+        </div>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<br>
+<p class="text-center text-light">Not a User 
+<a href="/signup" style="color: yellow;"><strong><u>Signup</u></strong></a></p>
+
+
+</div>
+
+<div class="col-md-4">
+
+</div>
+
+
+</div>
+
+</div>
+
+
+{% endblock body %}
